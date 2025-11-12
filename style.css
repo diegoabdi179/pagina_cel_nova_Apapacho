@@ -1,0 +1,1486 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap');
+
+/* --- PALETA DE COLORES BASE DE LA PAGINA WEB --- */
+:root {
+    /* Dominantes de la Marca (Alto Contraste) */
+    --color-primary: #882A6A;     /* Púrpura Intenso (Dominante) */
+    --color-secondary: #283870;   /* Azul Profundo (Texto/Fondo Oscuro) */
+    --color-danger: #C83070;      /* Rojo-Magenta (CTAs y títulos intensos) */
+    --color-success: #38A880;     /* Verde Turquesa */
+    
+    /* Acentos y Vibrantes */
+    --color-accent-vibrant: #D06030; /* Naranja Fuerte (Usado para formas/botones) */
+    --color-accent-yellow: #F0D038; /* Dorado Clásico (Usado para formas/highlights) */
+    
+    /* Colores Neutros / Fondos */
+    --color-light: #FFFFFF;
+    --color-background-soft: #F2F2F2; /* Fondo suave general (Similar a F6F3F8) */
+    --color-text-dark: #333; /* Texto oscuro general */
+    --color-text-medium: #555; /* Texto medio general */
+    --color-background-red: #b92e4a;
+    --color-background-sky-blue: #2eb6b9;
+    --color-background-grey: #E0E4D6; /*Gris Cálido */
+    --color-background-light-blue: #f3f5ff; /*Blanco azulado */
+
+    --color-text-blue: #3653bf; /* Azul Clásico */
+    --color-text-gold: #FFD700; /*Dorado clásico*/
+    
+    --color-text-secondary: #4b186f;  /* Violeta Profundo */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Raleway', Arial, sans-serif;
+    /* CAMBIO CLAVE: DEJAR EN BLANCO o quitar la propiedad 'background' */
+    background-color: var(--color-light); /* Asegura que el body sea blanco */
+    overflow-x: hidden;
+    position: relative;
+    color: var(--color-text-dark);
+}
+
+/* --- HEADER Y NAVEGACIÓN (Ajuste para visibilidad) --- */
+header {
+    width: 100%;
+    background: var(--color-light);
+    box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+    padding: 0.5rem 24px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+}
+
+.logo {
+    height: 53px;
+    margin-right: 40px; 
+}
+
+nav {
+    flex-grow: 1; 
+    max-width: 80%;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: flex-start; 
+    flex-wrap: nowrap; 
+}
+nav ul li {
+    margin-left: 8px;
+}
+nav a {
+    display: inline-block;
+    padding: 6px 16px;
+    border: 2px solid var(--color-danger); /* Rojo-Magenta */
+    color: var(--color-danger); /* Púrpura Intenso */
+    border-radius: 32px;
+    background-color: transparent;
+    font-size: 0.85rem; 
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+nav a:hover {
+    background: #ffe0e0; /* Rosa muy pálido, similar al original pero más claro */
+    color: var(--color-primary); /* Púrpura Intenso */
+}
+
+/* --- SECCIÓN HERO (Barco) --- */
+/* --- ESTILOS ESPECÍFICOS PARA LA PÁGINA PRINCIPAL (index.html) --- */
+
+/* Aplicamos el fondo a la sección principal para que cubra la ventana */
+main#inicio {
+    /* Fondo original de tu index.html */
+    background: linear-gradient(120deg, var(--color-success) 0%, var(--color-primary) 100%); 
+    width: 100vw;
+    min-height: 80vh; /* Opcional: min-height: 100vh; */
+}
+
+/* Figuras decorativas de MAIN */
+.shape {
+    position: absolute;
+    z-index: 1;
+    opacity: 0.55;
+}
+.shape1 { width: 140px; height: 90px; background: var(--color-accent-vibrant); border-radius: 61% 38% 46% 54% / 69% 52% 48% 31%; left: 105px; top: 52px; }
+.shape2 { width: 115px; height: 75px; background: var(--color-success); border-radius: 50% 50% 38% 62% / 62% 31% 69% 38%; left: 45px; bottom: 110px; }
+.shape3 { width: 100px; height: 80px; background: var(--color-accent-yellow); border-radius: 63% 47% 59% 41% / 48% 52% 48% 52%; right: 38px; bottom: 70px; }
+.shape4 { width: 90px; height: 120px; background: var(--color-primary); border-radius: 55% 45% 40% 60% / 43% 54% 46% 57%; right: 24px; top: 120px; }
+
+/* BUSCA O AÑADE ESTO EN style.css */
+.central-content {
+    z-index: 2;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center;
+    width: 100vw;
+}
+.main-image {
+    width: 500px;
+    max-width: 80vw;
+    height: auto;
+    box-shadow: 0 8px 64px 8px rgba(67, 15, 120, 0.18);
+    border-radius: 32px;
+    bottom: 5px;
+    position: relative;
+}
+
+/* --- SECCIÓN ¿QUIÉNES SOMOS? (Versión simple original) --- */
+.about-section {
+    position: relative;
+    width: 100%;
+    min-height: 85vh;
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(0deg, var(--color-background-grey) 100%, var(--color-light) 0%);
+    overflow: hidden;
+}
+
+.about-container {
+    display: flex;
+    max-width: 1200px;
+    width: 90%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 20px;
+    z-index: 3;
+}
+
+.about-text {
+    flex: 1;
+    max-width: 500px;
+}
+
+.about-title {
+    color: var(--color-primary); /* Púrpura Intenso */
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.about-text p {
+    color: var(--color-text-dark);
+    font-size: 1.15rem;
+    line-height: 1.65;
+    font-weight: 500;
+}
+
+.highlight-purple { color: var(--color-primary); font-weight: 700; }
+.highlight-red { color: var(--color-danger); font-weight: 700; }
+.highlight-green { color: var(--color-success); font-weight: 700; }
+
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    clip-path: polygon(10% 0%, 100% 0, 100% 90%, 0% 100%, 0% 20%);
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.1));
+}
+
+/* Figuras decorativas de ABOUT SECTION */
+.shape5 { position: absolute; width: 50px; height: 50px; background: var(--color-success); border-radius: 50% 50% 38% 62% / 62% 31% 69% 38%; right: 120px; top: 30px; opacity: 0.85; }
+.shape6 { position: absolute; width: 70px; height: 70px; background: var(--color-primary); border-radius: 61% 38% 46% 54% / 69% 52% 48% 31%; left: 10%; bottom: 80px; opacity: 0.85; }
+
+
+/* --- SECCIÓN ¿POR QUÉ EXISTIMOS? --- */
+.why-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: var(--color-light); 
+}
+
+.why-background-girl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('imagen3.png'); 
+    background-size: cover;
+    background-position: center;
+    z-index: 1; 
+    filter: brightness(0.6) contrast(0.8) saturate(0.5); 
+    opacity: 0.8; 
+}
+
+.why-hand {
+    position: absolute;
+    width: 180px; 
+    height: 180px; 
+    background: var(--color-accent-yellow); /* Amarillo Brillante */
+    border-radius: 60% 40% 70% 30% / 60% 40% 60% 40%; 
+    right: 0;
+    top: 0;
+    transform: translate(30%, -20%) rotate(15deg); 
+    z-index: 2; 
+    opacity: 0.9;
+}
+
+.why-container {
+    position: relative;
+    z-index: 4; 
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    max-width: 1200px;
+    width: 90%;
+    height: 100%;
+    padding: 20px;
+}
+
+.why-content {
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin-left: auto; 
+    border: 1px solid #eee;
+}
+
+.why-title {
+    color: var(--color-primary); /* Púrpura Intenso */
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.why-content p {
+    color: var(--color-text-dark);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.why-content .highlight-bold { 
+    font-weight: 700;
+}
+
+.why-content .highlight-red-stats {
+    color: var(--color-danger); /* Rojo-Magenta */
+    font-weight: 700;
+}
+
+.why-content .highlight-bold-purple {
+    color: var(--color-primary); /* Púrpura Intenso */
+    font-weight: 700;
+}
+
+.why-final-phrase {
+    margin-top: 5px;
+    font-size: 2.2rem; /* Tamaño de la frase*/
+    font-weight: 600;
+    z-index: 2;
+    bottom: 5px;
+    position: absolute;
+}
+
+.why-final-phrase .color1 {
+    color: var(--color-text-gold); 
+}
+.why-final-phrase .color2 {
+    color: var(--color-text-gold); /* Dorado clásico */
+    font-weight: 700;
+}
+.why-final-phrase .color3 {                 
+    color: var(--color-text-gold); 
+}
+
+
+.why-shape {
+    position: absolute;
+    background-color: var(--color-accent-yellow); /* Amarillo Brillante */
+    opacity: 0.9;
+    z-index: 2; 
+}
+
+.shape-top-left {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    left: -125px; 
+    top: -125px; 
+}
+
+.shape-bottom-left {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    left: -150px; 
+    bottom: -150px; 
+}
+
+.shape-bottom-right {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    right: -200px; 
+    bottom: -200px; 
+}
+
+/* --- SECCIÓN ¿QUÉ HACEMOS? --- */
+.what-we-do-section {
+    position: relative;
+    width: 100%;
+    min-height: 90vh;
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--color-background-red) 0%, var(--color-background-sky-blue) 100%); /* Degradado de Verde Turquesa a Azul Profundo */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.what-we-do-title {
+    color: var(--color-light); /* Púrpura Intenso */
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+    gap: 40px; 
+    max-width: 1200px;
+    width: 90%;
+    z-index: 2;
+    position: relative;
+}
+
+.card {
+    background-color: var(--color-light);
+    width: 300px;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    position: relative;
+    /* Forma de flecha con clip-path */
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 50% 100%, 0 88%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 350px; 
+}
+
+.card-1 { background-color: #fdfaf3; } /* Mantener tonos suaves para las tarjetas */
+.card-2 { background-color: #f0f8fa; } 
+.card-3 { background-color: #fff7f7; } 
+
+
+.card-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 3px solid var(--color-background-soft); /* Gris suave */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card h3 {
+    color: var(--color-text-dark);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.card-button {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease, color 0.3s ease;
+    margin-top: 20px; 
+}
+
+/* Colores de los botones */
+.button-yellow {
+    background-color: var(--color-accent-yellow); /* Amarillo Brillante */
+    color: var(--color-light); /* Azul Profundo (para contraste) */
+    border: 1px solid var(--color-accent-yellow);
+}
+.button-yellow:hover {
+    background-color: #ffd76a; /* Amarillo más claro */
+    color: var(--color-secondary);
+}
+
+.button-blue {
+    background-color: var(--color-secondary); /* Azul Profundo */
+    color: var(--color-light);
+    border: 1px solid var(--color-secondary);
+}
+.button-blue:hover {
+    background-color: #4a7dce; /* Azul más claro */
+}
+
+.button-orange {
+    background-color: var(--color-accent-vibrant); /* Naranja Fuerte */
+    color: var(--color-light);
+    border: 1px solid var(--color-accent-vibrant);
+}
+.button-orange:hover {
+    background-color: #e69a5c; /* Naranja más claro */
+}
+
+/* Formas decorativas del fondo de la sección "¿Qué hacemos?" */
+.what-we-do-shape {
+    position: absolute;
+    z-index: 1;
+    opacity: 0.6;
+}
+.wds-shape1 {
+    width: 150px;
+    height: 150px;
+    background: var(--color-success); /* Verde Turquesa */
+    border-radius: 50% 50% 30% 70% / 30% 70% 30% 70%;
+    right: 50px;
+    top: 30px;
+}
+.wds-shape2 {
+    width: 200px;
+    height: 200px;
+    background: var(--color-primary); /* Púrpura Intenso */
+    border-radius: 40% 60% 70% 30% / 60% 40% 60% 40%;
+    left: -80px;
+    bottom: -80px;
+}
+
+/* --- NUEVA SECCIÓN: ¡INVOLÚCRATE! --- */
+.involve-section {
+    position: relative;
+    width: 100%;
+    min-height: 90vh;
+    padding: 80px 0;
+    background: linear-gradient(180deg, #fceae6 0%, #e2d8e6 100%);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* Centra horizontal */
+    justify-content: center;
+}
+
+/* Imagen de fondo de la sección */
+.involve-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('niños.png'); /* Imagen que el usuario pondrá */
+    background-size: cover;
+    background-position: center;
+    z-index: 0; 
+    opacity: 0.4;
+}
+
+.involve-title {
+    color: var(--color-danger);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+.involve-cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    width: 90%;
+    z-index: 2;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.involve-card {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ccc 0%, #999 100%); /* fallback */
+    text-align: center;
+}
+
+/* Degradados de respaldo */
+.involve-card-1 {
+    background: linear-gradient(135deg, var(--color-success) 0%, #46968d 100%);
+}
+.involve-card-2 {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #8c5d81 100%);
+}
+.involve-card-3 {
+    background: linear-gradient(135deg, var(--color-danger) 0%, #d85068 100%);
+}
+
+.involve-card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.9;
+    border-radius: 50%;
+}
+
+/* Texto centrado */
+.involve-card p {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 8px 12px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 12px;
+}
+
+/* Botón centrado */
+.btn-sumate {
+    display: inline-block;
+    padding: 15px 50px;
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+    z-index: 2;
+    margin-top: 20px; /* separa el botón de las tarjetas */
+}
+
+.btn-sumate:hover {
+    background-color: #4a6bae;
+}
+
+
+/* --- SECCIÓN NUESTRA UBICACIÓN (NUEVA) --- */
+.location-section {
+    position: relative;
+    width: 100%;
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--color-danger) 100%, var(--color-background-sky-blue) 0%); /* Fondo suave */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.location-title {
+    color: var(--color-light); /* Púrpura Intenso */
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+.map-container {
+    width: 90%;
+    max-width: 900px;
+    height: 400px;
+    background-color: var(--color-light);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 40px;
+    z-index: 2;
+    position: relative;
+}
+
+.map-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+.info-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 900px;
+    width: 90%;
+    z-index: 2;
+    position: relative;
+}
+
+.info-card {
+    background-color: var(--color-light);
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    flex: 1; 
+    min-width: 280px; 
+    max-width: 400px; 
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-card h3 {
+    color: var(--color-secondary); /* Azul Profundo */
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.info-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; 
+}
+
+.info-card ul li {
+    color: var(--color-text-medium);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.btn-how-to-get {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--color-danger); /* Rojo-Magenta */
+    color: var(--color-light);
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin-top: 25px; 
+    align-self: flex-start; 
+}
+
+.btn-how-to-get:hover {
+    background-color: #bb3f56; /* Rojo-Magenta más oscuro */
+}
+
+/* Formas decorativas del fondo de la sección "Ubicación" */
+.location-shape {
+    position: absolute;
+    z-index: 1;
+    opacity: 0.6;
+}
+.ls-shape1 { 
+    width: 150px; 
+    height: 150px; 
+    background: var(--color-success); /* Verde Turquesa */
+    border-radius: 50%; 
+    left: -50px; 
+    top: 10%; 
+    transform: rotate(20deg);
+}
+.ls-shape2 { 
+    width: 180px; 
+    height: 100px; 
+    background: var(--color-accent-yellow); /* Amarillo Brillante */
+    border-radius: 40% 60% 70% 30% / 60% 40% 60% 40%;
+    right: -70px; 
+    bottom: 15%; 
+    transform: rotate(-30deg);
+}
+
+/* --- SECCIÓN BLOG --- */
+.blog-section {
+    position: relative;
+    width: 100%;
+    min-height: 80vh;
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--color-success) 0%, var(--color-danger) 100%); /* Degradado de Verde Turquesa a Rojo-Magenta */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blog-title {
+    color: var(--color-light); /* Blanco para contraste con el fondo */
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+/* Contenedor del Carrusel */
+.carousel-container {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+/* Pista de los Slides (Lo que se moverá con JS) */
+.carousel-track {
+    display: flex;
+    width: max-content;
+    transition: transform 0.4s ease-in-out;
+}
+
+/* Estilo de cada publicación/tarjeta del Blog */
+.blog-post {
+    flex: 0 0 380px;
+    height: auto;
+    margin: 0 15px;
+    border-radius: 15px;
+    background-color: var(--color-light);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-image-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.blog-post img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.post-content {
+    padding: 15px 20px 10px;
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(245, 245, 245, 0.9) 100%);
+    min-height: 100px;
+}
+
+.post-date {
+    color: var(--color-text-medium);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.post-title {
+    color: var(--color-secondary); /* Azul Profundo para el título */
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+}
+.post-title:hover {
+    color: var(--color-danger); /* Rojo-Magenta al pasar el ratón */
+}
+
+/* Flechas de Navegación */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-accent-yellow); /* Amarillo Brillante */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 3;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: opacity 0.3s;
+}
+
+.carousel-control:hover {
+    opacity: 0.8;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.arrow-icon {
+    font-size: 1.2rem;
+    color: var(--color-text-dark);
+    font-weight: 900;
+}
+
+/* Formas decorativas del fondo */
+.blog-shape {
+    position: absolute;
+    z-index: 1;
+    opacity: 0.7;
+}
+.bs-shape1 { width: 100px; height: 100px; background: var(--color-success); border-radius: 50%; left: 50px; top: 70%; }
+.bs-shape2 { width: 120px; height: 80px; background: var(--color-accent-vibrant); border-radius: 60% 40% 70% 30% / 60% 40% 60% 40%; right: 100px; bottom: 50px; }
+
+
+/* --- SECCIÓN DONAR (Llamada a la Acción) --- */
+.donate-section {
+    position: relative;
+    width: 100%;
+    min-height: 80vh; 
+    padding: 80px 0;
+    background: linear-gradient(180deg, var(--color-background-sky-blue) 100%, var(--color-secondary) 0%); /* Fondo suave */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.donate-card {
+    background-color: var(--color-light);
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 650px;
+    width: 90%;
+    padding: 50px 30px;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+.donate-title {
+    color: var(--color-danger); /* Rojo-Magenta */
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.donate-card p {
+    color: var(--color-text-dark);
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    font-weight: 500;
+}
+
+.btn-donate {
+    display: inline-block;
+    padding: 15px 60px;
+    background-color: var(--color-secondary); /* Azul Profundo */
+    color: var(--color-light);
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.1s, box-shadow 0.1s;
+    border: none;
+    cursor: pointer;
+    position: relative; 
+    overflow: hidden; 
+}
+.btn-donate:hover {
+    background-color: #4a6bae; /* Azul más claro */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Efecto de destello (Sparkle) */
+.btn-donate.sparkle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: sparkle-effect 0.4s ease-out forwards;
+}
+
+@keyframes sparkle-effect {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 200px;
+        height: 200px;
+        opacity: 0;
+    }
+}
+
+
+.donate-phrase {
+    margin-top: 40px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    z-index: 2;
+    position: relative;
+}
+.donate-phrase .color-red { color: var(--color-text-blue); } /* Rojo-Magenta */
+.donate-phrase .color-yellow { color: var(--color-text-blue); } /* Dorado clásico */
+.donate-phrase .color-green { color: var(--color-text-blue); } /* Verde Turquesa */
+
+/* Formas decorativas del fondo de la sección "Donar" */
+.donate-shape {
+    position: absolute;
+    z-index: 1;
+    opacity: 0.7;
+}
+.ds-shape1 { 
+    width: 180px; 
+    height: 180px; 
+    background: var(--color-text-gold); /* Dorado clásico */
+    border-radius: 60% 40% 70% 30% / 60% 40% 60% 40%; 
+    left: -80px; 
+    top: 100px; 
+    transform: rotate(-20deg);
+}
+.ds-shape2 { 
+    width: 100px; 
+    height: 100px; 
+    background: var(--color-accent-vibrant); /* Naranja Fuerte */
+    border-radius: 50%; 
+    right: 50px; 
+    top: 50%; 
+    transform: translateY(-50%) rotate(45deg);
+}
+.ds-shape3 { 
+    width: 150px; 
+    height: 120px; 
+    background: var(--color-success); /* Verde Turquesa */
+    border-radius: 40% 60% 70% 30% / 60% 40% 60% 40%;
+    right: -50px; 
+    bottom: 80px; 
+    transform: rotate(30deg);
+}
+
+
+/* --- NUEVA SECCIÓN: CONTACTO --- */
+.contact-section {
+    position: relative;
+    width: 100%;
+    padding: 80px 0;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: var(--color-light); /* Fondo blanco */
+}
+
+/* Imagen de fondo de la niña (El usuario la debe proporcionar) */
+.contact-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('contacto_fondo.png'); /* Imagen que el usuario pondrá */
+    background-size: cover;
+    background-position: center 20%;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+.contact-title {
+    color: var(--color-success); /* Verde Turquesa */
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-align: center;
+    z-index: 3;
+    position: relative;
+}
+
+.contact-cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1000px;
+    width: 90%;
+    z-index: 3;
+    position: relative;
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6); /* Fondo blanco semitransparente */
+    backdrop-filter: blur(5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: scale(1.05);
+}
+
+.contact-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.card-instagram .contact-icon { color: var(--color-secondary); } /* Azul Profundo */
+.card-phone .contact-icon { color: var(--color-text-gold); } /* Dorado Clásico */
+.card-mail .contact-icon { color: var(--color-danger); } /* Rojo-Magenta */
+
+.contact-card h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.5;
+}
+.card-instagram h3 { color: var(--color-secondary); }
+.card-phone h3 { color: var(--color-text-gold); }
+.card-mail h3 { color: var(--color-danger); }
+
+
+.contact-card p {
+    font-size: 1rem;
+    color: var(--color-text-medium);
+    margin-top: 5px;
+}
+
+/* --TESTIMONIOS STYLE*/
+#testimonios {
+  background: var(--color-background-light-blue);
+  padding: 60px 20px;
+}
+
+.future-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: var(--color-text-dark);
+}
+
+/* Carrusel horizontal */
+.testimonials-carousel {
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.testimonials-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.testimonials-carousel::-webkit-scrollbar-thumb {
+  background: var(--color-text-medium);
+  border-radius: 4px;
+}
+
+.testimonials-carousel::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-dark);
+}
+
+/* Tarjetas de testimonio */
+.testimonial-card {
+  background: var(--color-light);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  flex: 0 0 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-text {
+  font-style: italic;
+  color: var(--color-text-dark);
+  margin-bottom: 15px;
+}
+
+.testimonial-author {
+  color: var(--color-text-medium);
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+/* Botón de descarga */
+.testimonial-download {
+  align-self: flex-start;
+  background: var(--color-secondary);
+  color: var(--color-light);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.testimonial-download:hover {
+  background: var(--color-secondary);
+  transform: scale(1.05);
+}
+
+
+
+/* --- FOOTER (Derechos de Autor) --- */
+footer {
+    width: 100%;
+    padding: 20px 0;
+    background-color: var(--color-success); /* Verde Turquesa */
+    color: var(--color-light);
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    z-index: 10;
+    position: relative;
+    box-shadow: 0 -5px 10px rgba(0,0,0,0.1);
+}
+
+/* TUS MEDIA QUERIES ORIGINALES - LAS MANTENEMOS PORQUE YA HACEN ALGUNOS AJUSTES */
+@media (max-width: 950px) {
+    /* AJUSTE MENÚ MÓVIL */
+    header {
+        padding: 0.5rem 15px;
+    }
+    nav {
+        max-width: 100%;
+        order: 3; 
+        width: 100%;
+        margin-top: 8px;
+    }
+    nav ul {
+        justify-content: center; 
+        flex-wrap: wrap; 
+        gap: 5px; 
+    }
+    nav ul li {
+        margin: 0; 
+    }
+    nav a {
+        font-size: 0.75rem; 
+        padding: 4px 6px;
+    }
+
+    /* Contenido general */
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .why-content {
+        margin: 0 auto;
+        max-width: 90%;
+        padding: 30px;
+    }
+    .why-final-phrase {
+        position: static;
+        margin-top: 30px;
+        text-align: center;
+        font-size: 1.1rem;
+        padding: 0 20px;
+    }
+
+    /* Títulos Móviles */
+    .what-we-do-title, .involve-title, .blog-title, .donate-title, .location-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+    .cards-container, .involve-cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        width: 90%;
+        max-width: 350px;
+    }
+    .involve-card {
+        width: 90%;
+        max-width: 350px;
+    }
+    
+    /* Blog en móvil */
+    .blog-post {
+        flex: 0 0 90%; 
+        margin: 0 5%;
+    }
+    .carousel-control {
+        width: 30px;
+        height: 30px;
+    }
+    .arrow-icon {
+        font-size: 1rem;
+    }
+    .prev { left: 5px; }
+    .next { right: 5px; }
+
+    /* Ubicación Móvil */
+    .map-container {
+        height: 300px;
+        margin-bottom: 30px;
+    }
+    .info-cards-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .info-card {
+        min-width: unset;
+        width: 90%;
+        max-width: 450px;
+        padding: 25px;
+        text-align: center;
+    }
+    .btn-how-to-get {
+        align-self: center; /* Centra el botón en móvil */
+    }
+
+    /* Donar en móvil */
+    .donate-card {
+        padding: 30px 20px;
+    }
+    .donate-card p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+    }
+    .btn-donate {
+        padding: 12px 40px;
+        font-size: 1.1rem;
+    }
+    .donate-phrase {
+        font-size: 1.2rem;
+        margin-top: 30px;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 850px) {
+    .contact-cards-container {
+        gap: 20px;
+    }
+    .contact-card {
+        width: 200px;
+        height: 200px;
+    }
+    .contact-icon {
+        font-size: 2.5rem;
+    }
+    .contact-card h3 {
+        font-size: 1.2rem;
+    }
+    .cs-shape-1, .cs-shape-2 {
+        display: none; /* Ocultar formas grandes en móvil */
+    }
+}
+@media (max-width: 600px) {
+    /* Ocultar formas decorativas en móviles pequeños */
+    .shape, .shape5, .shape6, .why-hand, .why-shape, .what-we-do-shape, .involve-shape, .blog-shape, .donate-shape, .location-shape {
+        display: none;
+    }
+    .why-background-girl {
+        filter: none; 
+        opacity: 0.6; 
+    }
+    /* Ajuste de tarjetas de contacto para móvil pequeño */
+    .contact-cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-card {
+        width: 90%;
+        max-width: 300px;
+        height: 120px;
+        border-radius: 15px;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding-left: 20px;
+    }
+    .contact-icon {
+        margin-right: 20px;
+    }
+    .contact-card p {
+        font-size: 0.9rem;
+    }
+}
+
+
+/*
+================================================================
+== CÓDIGO AÑADIDO PARA LA ADAPTACIÓN MÓVIL (RESPONSIVE DESIGN) ==
+================================================================
+*/
+
+/* Regla para que las imágenes nunca se desborden de su contenedor */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- ESTILOS PARA EL MENÚ DE HAMBURGUESA --- */
+
+/* Ocultamos el botón en la versión de escritorio por defecto */
+.menu-hamburguesa {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001; /* Asegura que esté sobre otros elementos */
+}
+
+.menu-hamburguesa span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-primary);
+    margin: 5px 0;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+/* --- MEDIA QUERY PRINCIPAL PARA TABLETAS Y MÓVILES --- */
+/* Usamos 950px para unificar con tus media queries existentes */
+@media (max-width: 950px) {
+
+    /* --- AJUSTES AL MENÚ MÓVIL (REEMPLAZA EL COMPORTAMIENTO ANTERIOR) --- */
+    
+    /* Mostramos el botón de hamburguesa */
+    .menu-hamburguesa {
+        display: block;
+    }
+
+    /* Ocultamos la navegación por defecto y la preparamos para ser un menú desplegable */
+    nav {
+        display: none; /* La ocultamos para que no se vea por defecto */
+        position: absolute;
+        top: 69px; /* Altura del header (ajustar si cambia) */
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        margin-top: 0; /* Reseteamos el margen que tenía antes */
+        order: 0; /* Reseteamos el orden para que no interfiera */
+    }
+    
+    /* Clase que se añade con JS para mostrar el menú */
+    nav.visible {
+        display: block;
+    }
+
+    /* Hacemos que la lista de links sea vertical y ocupe el espacio */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 0; /* Reseteamos el gap */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Espacio vertical entre links */
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Hacemos los botones de navegación más grandes y fáciles de tocar */
+    nav a {
+        display: block;
+        padding: 10px 20px;
+        width: 80%;
+        margin: 0 auto;
+        font-size: 1rem; /* Aumentamos el tamaño de la fuente */
+    }
+    
+    /* --- AJUSTES ADICIONALES A LAS SECCIONES --- */
+    
+    /* Reducimos el padding general en móviles para que no haya tanto espacio vacío */
+    section {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        min-height: auto; /* Dejamos que el contenido defina la altura */
+    }
+    
+    .about-image {
+        justify-content: center; /* Centramos la imagen en su contenedor */
+    }
+    
+    /* Simplificamos la forma de la imagen en móvil, se ve más limpio */
+    .about-image img {
+       clip-path: none;
+       border-radius: 20px;
+    }
+
+}
+
+

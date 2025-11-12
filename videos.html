@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos y Recursos - Nova Apapacho</title> 
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo" class="logo">
+        <button class="menu-hamburguesa" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#quienes-somos">¿Quiénes somos?</a></li>
+                <li><a href="index.html#por-que-existimos">¿Por qué existimos?</a></li>
+                <li><a href="index.html#que-hacemos">¿Qué hacemos?</a></li>
+                <li><a href="index.html#involucrate">Involúcrate</a></li>
+                <li><a href="index.html#ubicacion">Ubicación</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li class="active"><a href="videos.html">Videos</a></li> <li><a href="donar.html">Donar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="videos-main-content">
+        <section class="videos-section">
+            <h2 class="videos-title">Recursos Audiovisuales y Multimedia</h2>
+            <p class="videos-intro-text">
+                Explora nuestra galería de recursos. Hemos diseñado un espacio visualmente impactante donde podrás encontrar entrevistas, webinars y fotografías de nuestros programas.
+            </p>
+            
+            <div class="video-grid">
+                
+                <div class="video-card large">
+                    <div class="content-placeholder">
+                        <span class="icon">VIDEO PRINCIPAL</span>
+                        <h3>Video o Recurso Principal</h3>
+                        <p>Este espacio es para un video destacado, como un trailer o presentación de la organización.</p>
+                    </div>
+                </div>
+
+                <div class="video-card standard">
+                    <div class="content-placeholder">
+                        <span class="icon">FOTO</span>
+                        <h3>Galería de Eventos</h3>
+                        <p>Usar para subir una fotografía de un evento o actividad reciente.</p>
+                    </div>
+                </div>
+                
+                <div class="video-card tall">
+                    <div class="content-placeholder">
+                        <span class="icon">TEXTO/DATO</span>
+                        <h3>Infografía o Testimonio Largo</h3>
+                        <p>Ideal para contenido vertical: una cita poderosa, un dato clave o un testimonio extenso.</p>
+                    </div>
+                </div>
+
+                <div class="video-card standard">
+                    <div class="content-placeholder">
+                        <span class="icon">ENTREVISTA</span>
+                        <h3>Webinar con Especialista</h3>
+                        <p>Espacio reservado para subir la grabación de una entrevista o un taller educativo.</p>
+                    </div>
+                </div>
+                
+                <div class="video-card small">
+                    <div class="content-placeholder">
+                        <span class="icon">¡DONA!</span>
+                        <h3>Llamado a la Acción</h3>
+                        <p>Espacio pequeño para un banner, un anuncio rápido o un enlace de donación.</p>
+                    </div>
+                </div>
+                
+                <div class="video-card standard">
+                    <div class="content-placeholder">
+                        <span class="icon">NOTICIA</span>
+                        <h3>Video sobre Noticias del Sector</h3>
+                        <p>Aquí se puede incluir un resumen en video o un enlace a un informe relevante.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        © 2024 Nova Apapacho Centro de Rehabilitación.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.querySelector('.menu-hamburguesa');
+            const nav = document.querySelector('nav');
+
+            // Lógica para el menú hamburguesa
+            if (menuBtn && nav) {
+                menuBtn.addEventListener('click', () => {
+                    nav.classList.toggle('visible');
+                });
+            }
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (nav.classList.contains('visible')) {
+                        nav.classList.remove('visible');
+                    }
+                });
+            });
+
+            // Lógica de la Animación de Desvanecimiento (Fade-in)
+            const videoCards = document.querySelectorAll('.video-card');
+            const observerOptions = {
+                root: null, 
+                rootMargin: '0px',
+                threshold: 0.1 
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible'); 
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            videoCards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donar - Nova Apapacho</title>
+    <link rel="stylesheet" href="style.css"> 
+
+<style>
+    /* --------------------------------------------------------------------------------------- */
+    /* --- ESTILOS ESPECÍFICOS PARA LA PÁGINA 'DONAR' (Usando Variables Corregidas) --- */
+    /* --------------------------------------------------------------------------------------- */
+    
+    html, body {
+        min-height: 100vh;
+        
+        /* 1. Degradado CORREGIDO: Usando tus variables --color-accent-vibrant y --color-accent-yellow */
+        background: linear-gradient(135deg, var(--color-accent-vibrant) 0%, var(--color-accent-yellow) 40%, var(--color-light) 100%) !important; 
+        
+        background-attachment: fixed !important; 
+        background-color: transparent !important;
+        
+        display: flex;
+        flex-direction: column;
+        color: var(--color-text-dark); 
+    }
+    
+    .donate-page-content {
+        flex-grow: 1; 
+        padding: 100px 5% 60px; 
+        max-width: 1200px; 
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap; 
+        align-items: center; 
+        justify-content: center; 
+        gap: 40px; 
+        /* Hacemos el fondo del main transparente para que se vea el fondo del body */
+        background: transparent !important; 
+    }
+
+    footer {
+        /* Elimina cualquier fondo o sombra indeseada en el footer */
+        background-color: transparent !important; 
+        box-shadow: none !important;
+        padding: 0; 
+    }
+
+    /* --- ESTILOS DE TEXTO Y FORMULARIO --- */
+    .donate-intro {
+        flex: 1; 
+        min-width: 300px; 
+        max-width: 600px; 
+        text-align: left; 
+        padding: 20px;
+    }
+
+    .donate-intro h1 {
+        color: var(--color-secondary); 
+        font-size: 3.2rem; 
+        margin-bottom: 25px;
+        font-weight: 800;
+        line-height: 1.1;
+    }
+
+    .donate-intro p {
+        color: var(--color-text-dark); 
+        font-size: 1.25rem; 
+        line-height: 1.7;
+        margin-bottom: 50px;
+    }
+
+    #formulario-donacion {
+        flex: 1; 
+        min-width: 300px;
+        max-width: 450px; 
+        background-color: var(--color-light); /* Fondo blanco que resalta */
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); 
+        margin-bottom: 0; 
+        text-align: center;
+    }
+
+    #formulario-donacion h2 {
+        color: var(--color-secondary); 
+        font-size: 2.2rem; 
+        margin-bottom: 30px;
+        font-weight: 700;
+    }
+
+    .payment-form-placeholder {
+        /* Usando tu variable --color-accent-vibrant para el borde */
+        border: 2px dashed var(--color-accent-vibrant); 
+        padding: 50px 20px;
+        border-radius: 10px;
+        background-color: #fffaf2; 
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 200px; 
+    }
+
+    .payment-form-placeholder p {
+        color: var(--color-text-medium);
+        font-style: italic;
+        margin-bottom: 25px;
+    }
+
+    .placeholder-button {
+        /* CORRECCIÓN: Usando tu variable --color-success para el verde */
+        background-color: var(--color-success);
+        color: var(--color-secondary); 
+        border: none;
+        padding: 15px 40px;
+        font-size: 1.2rem; 
+        font-weight: 700;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    }
+
+    .placeholder-button:hover {
+        background-color: #4bc79c; /* Un tono más claro de tu --color-success */
+        transform: translateY(-2px); 
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Media Query para móvil */
+    @media (max-width: 900px) {
+        .donate-page-content {
+            flex-direction: column; 
+            padding: 100px 20px 40px; 
+            gap: 30px;
+        }
+        .donate-intro, #formulario-donacion {
+            max-width: 100%; 
+            text-align: center; 
+            padding: 30px;
+        }
+        .donate-intro h1 {
+            font-size: 2.5rem;
+        }
+        .donate-intro p {
+            font-size: 1.1rem;
+        }
+        #formulario-donacion h2 {
+            font-size: 1.8rem;
+        }
+        .payment-form-placeholder {
+            padding: 40px 15px;
+            min-height: 180px;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .donate-intro h1 {
+            font-size: 2rem;
+        }
+        .donate-intro p {
+            font-size: 1rem;
+        }
+        #formulario-donacion {
+            padding: 20px;
+        }
+        #formulario-donacion h2 {
+            font-size: 1.6rem;
+        }
+        .placeholder-button {
+            font-size: 1rem;
+            padding: 12px 30px;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo" class="logo">
+        <button class="menu-hamburguesa" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#quienes-somos">¿Quiénes somos?</a></li>
+                <li><a href="index.html#por-que-existimos">¿Por qué existimos?</a></li>
+                <li><a href="index.html#que-hacemos">¿Qué hacemos?</a></li>
+                <li><a href="index.html#involucrate">Involúcrate</a></li>
+                <li><a href="index.html#ubicacion">Ubicación</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li class="active"><a href="donar.html">Donar</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="donate-page-content">
+        <div class="donate-intro">
+            <h1>¡Tu Apoyo Transforma Vidas!</h1>
+            <p>Cada donativo nos permite llevar nuestros programas de prevención a más niñas, niños y adolescentes en México, ofreciéndoles un futuro seguro y libre de violencia. Únete a la causa y haz tu contribución hoy.</p>
+        </div>
+
+        <section id="formulario-donacion">
+            <h2>Realiza tu Donación aquí</h2>
+            <div class="payment-form-placeholder">
+                <p>La integración con la plataforma de donaciones se implementará en esta área.</p>
+                <button class="placeholder-button">Donar Ahora (Integración Pendiente)</button>
+                </div>
+        </section>
+        </main>
+    <footer>
+        </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.querySelector('.menu-hamburguesa');
+            const nav = document.querySelector('nav');
+
+            // Lógica para abrir/cerrar con el botón de hamburguesa
+            if (menuBtn && nav) {
+                menuBtn.addEventListener('click', () => {
+                    nav.classList.toggle('visible');
+                });
+            }
+
+            // Lógica para cerrar el menú al hacer clic en un enlace
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (nav.classList.contains('visible')) {
+                        nav.classList.remove('visible');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

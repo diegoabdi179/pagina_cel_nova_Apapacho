@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Nova Apapacho</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo" class="logo">
+        <button class="menu-hamburguesa" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#quienes-somos">¿Quiénes somos?</a></li>
+                <li><a href="index.html#por-que-existimos">¿Por qué existimos?</a></li>
+                <li><a href="index.html#que-hacemos">¿Qué hacemos?</a></li>
+                <li><a href="index.html#involucrate">Involúcrate</a></li>
+                <li><a href="index.html#ubicacion">Ubicación</a></li>
+                <li class="active"><a href="blog.html">Blog</a></li> 
+                <li><a href="videos.html">Videos</a></li>  <li><a href="donar.html">Donar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="blog-main-content">
+        <section class="blog-section">
+            <div class="blog-shape bs-shape1"></div>
+            <div class="blog-shape bs-shape2"></div>
+            <h2 class="blog-title">Blog: Noticias y Artículos</h2>
+            
+            <p class="blog-intro-text">
+                Aquí compartimos información relevante sobre prevención de violencia, derechos de la infancia, y consejos prácticos para padres y educadores.
+            </p>
+            <div class="carousel-container">
+                <button class="carousel-control prev" aria-label="Anterior"><span class="arrow-icon">❮</span></button>
+                <button class="carousel-control next" aria-label="Siguiente"><span class="arrow-icon">❯</span></button>
+                <div class="carousel-track" id="blog-carousel-track">
+                    <a href="post_herramientas.html" target="_blank" class="blog-post">
+                        <div class="blog-image-wrapper"><img src="blog_img1.png" alt="Niños estudiando"></div>
+                        <div class="post-content">
+                            <p class="post-date">26 Septiembre 2025</p>
+                            <h3 class="post-title">Herramientas digitales para prevenir el acoso escolar</h3>
+                        </div>
+                    </a>
+                    <a href="post_aire_libre.html" target="_blank" class="blog-post">
+                        <div class="blog-image-wrapper"><img src="blog_img2.png" alt="Niños corriendo en el campo"></div>
+                        <div class="post-content">
+                            <p class="post-date">10 Septiembre 2025</p>
+                            <h3 class="post-title">La importancia de jugar al aire libre: Un derecho de la infancia</h3>
+                        </div>
+                    </a>
+                    <a href="post_seguridad.html" target="_blank" class="blog-post">
+                        <div class="blog-image-wrapper"><img src="blog_img3.png" alt="Padre e hijo dibujando"></div>
+                        <div class="post-content">
+                            <p class="post-date">01 Agosto 2025</p>
+                            <h3 class="post-title">Cómo hablar de seguridad con tus hijos desde casa</h3>
+                        </div>
+                    </a>
+                    <a href="post_programas.html" target="_blank" class="blog-post">
+                        <div class="blog-image-wrapper"><img src="blog_img4.png" alt="Otra imagen de blog"></div>
+                        <div class="post-content">
+                            <p class="post-date">20 Julio 2025</p>
+                            <h3 class="post-title">Nuevos programas de apoyo legal en el estado</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="blog-archive-section" id="archivo-blog">
+            <h2>Archivo y Categorías (Pendiente de Implementación)</h2>
+            <div class="archive-placeholder">
+                <p>Aquí se implementará una función para buscar y listar todos los artículos publicados por mes o categoría.</p>
+                </div>
+        </section>
+        </main>
+
+    <footer>
+        </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.querySelector('.menu-hamburguesa');
+            const nav = document.querySelector('nav');
+
+            // Lógica para abrir/cerrar con el botón de hamburguesa
+            if (menuBtn && nav) {
+                menuBtn.addEventListener('click', () => {
+                    nav.classList.toggle('visible');
+                });
+            }
+
+            // ... (El resto de tu código JavaScript permanece igual)
+            
+            // Lógica para cerrar el menú al hacer clic en un enlace
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (nav.classList.contains('visible')) {
+                        nav.classList.remove('visible');
+                    }
+                });
+            });
+
+            // Lógica del carrusel del blog
+            const track = document.getElementById('blog-carousel-track');
+            if (track) {
+                const prevButton = document.querySelector('.blog-section .prev');
+                const nextButton = document.querySelector('.blog-section .next');
+                const slides = Array.from(track.children);
+                
+                function getSlideWidth() {
+                    if (!slides[0]) return 0;
+                    return slides[0].offsetWidth + 30;
+                }
+
+                let currentSlide = 0;
+
+                function updateCarousel() {
+                    const slideWidth = getSlideWidth();
+                    if(track) track.style.transform = 'translateX(' + (-slideWidth * currentSlide) + 'px)';
+                    
+                    if(prevButton) prevButton.disabled = currentSlide === 0;
+
+                    const carouselContainer = document.querySelector('.blog-section .carousel-container');
+                    const containerWidth = carouselContainer ? carouselContainer.offsetWidth : 0;
+                    
+                    let visibleSlidesCount = slideWidth > 0 ? Math.floor(containerWidth / slideWidth) : 1;
+                    visibleSlidesCount = Math.max(1, visibleSlidesCount);
+
+                    if(nextButton) nextButton.disabled = currentSlide >= slides.length - visibleSlidesCount;
+                }
+
+                if(nextButton) nextButton.addEventListener('click', () => {
+                    if (!nextButton.disabled) {
+                        currentSlide++;
+                    } else {
+                        currentSlide = 0;
+                    }
+                    updateCarousel();
+                });
+
+                if(prevButton) prevButton.addEventListener('click', () => {
+                    if (!prevButton.disabled) {
+                        currentSlide--;
+                    } else {
+                        const slideWidth = getSlideWidth();
+                        const containerWidth = document.querySelector('.blog-section .carousel-container').offsetWidth;
+                        const visibleSlidesCount = Math.floor(containerWidth / slideWidth) || 1;
+                        currentSlide = slides.length - visibleSlidesCount;
+                    }
+                    updateCarousel();
+                });
+
+                updateCarousel();
+                window.addEventListener('resize', updateCarousel);
+            }
+        });
+    </script>
+</body>
+</html>
